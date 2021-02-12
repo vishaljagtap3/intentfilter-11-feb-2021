@@ -21,7 +21,7 @@ public class ImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mImg = new ImageView(this);
-        mImg.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        mImg.setLayoutParams(new ViewGroup.LayoutParams(500, 500));
         setContentView(mImg);
 
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
@@ -48,7 +48,8 @@ public class ImageActivity extends AppCompatActivity {
 
     private void showImage() {
         mImg.setImageURI(
-                Uri.parse( getIntent().getStringExtra("path") )
+                //Uri.parse( getIntent().getStringExtra("path") )
+                getIntent().getData()
         );
     }
 }
